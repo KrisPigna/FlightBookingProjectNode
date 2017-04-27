@@ -46,7 +46,7 @@ App.service('FlightService', ['$http', function($http){
         return this.flights;
     }
     
-    /*this.populateFlightsListTESTING = function() {
+    /*this.getFlightResultsTESTING = function() {
     	return $http.get("/json/exampleresponse.json") 
             .then(function(response){console.log(response.data);return response.data}, function(){console.log(response)});
     }*/
@@ -74,31 +74,6 @@ App.service('FlightService', ['$http', function($http){
                     'Content-type': 'application/json'
                 },
                 data:
-                        /*{
-                      "request": {
-                        "passengers": {
-                          "kind": "qpxexpress#passengerCounts",
-                          "adultCount": 1,
-                          "childCount": 0,
-                          "infantInLapCount": 0,
-                          "infantInSeatCount": 0,
-                          "seniorCount": 0
-                        },
-                        "slice": [
-                          {
-                            "kind": "qpxexpress#sliceInput",
-                            "origin": "MIA",
-                            "destination": "ORD",
-                            "date": "2017-05-17",
-                            "maxStops": 1
-                          }
-                        ],
-                        "saleCountry": "US",
-                        "ticketingCountry": "US",
-                        "refundable": true,
-                        "solutions": 20
-                      }
-                    }*/
                         {
                           "request": {
                             "passengers": {
@@ -127,21 +102,5 @@ App.service('FlightService', ['$http', function($http){
             
             }) 
                 .then(function(response){console.log(response.data);return response.data}, function(){console.log(response)});
-            }
-    
-    this.searchFlights = function(formData, flightsList, length) {
-        console.log(flightsList);
-        var flightResults = [];
-        for (var i = 0; i < length; i++) {
-            if (formData.departureCity == flightsList[i].departureCity && formData.arrivalCity == flightsList[i].arrivalCity) {
-                flightResults.push(flightsList[i]);
-                console.log("inside loop");
-            }
-        }
-        /*console.log("Inside function");
-        this.flightResults = [];
-        this.flightResults = this.populateFlightsList();*/
-        return flightResults;
-    }
-
+         }
 }]);
